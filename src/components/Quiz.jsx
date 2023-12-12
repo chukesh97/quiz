@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { questionDataArray } from "./Data";
 import ScoreBoard from "./ScoreBoard";
 import { Box, Button, ListItem,Typography, styled } from "@mui/material";
+import Nav from "./Nav";
 
 const Wrapper = styled(Box)`
   background-color: #4caf50;
@@ -63,6 +64,7 @@ const openDialog = () => {
 
   return (
     <Wrapper>
+      <Nav/>
       <Container>
         {
           currentQuestionIndex === 5 ? (

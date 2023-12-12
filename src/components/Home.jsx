@@ -1,13 +1,12 @@
 import React from 'react'
 import Nav from './Nav'
-import QuizComponent from './Quiz'
+import StartQuiz from './StartQuiz'
 
 const Home = () => {
   return (
     <div>
         <Nav/>
-        <QuizComponent/>
-      
+        <StartQuiz/>      
     </div>
   )
 }
