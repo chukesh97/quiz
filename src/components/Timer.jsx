@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const Timer = () => {
-  const [time, setTime] = useState(0);
+const Timer = (running) => {
+  const [seconds, setSeconds] = useState(120);
+
+
+
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(time + 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+    if (running) {
+      const interval = setInterval(() => {
+        setSeconds(seconds - 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [running, seconds]);
 
   return (
-      <span>{time}</span>
+    <span>{seconds}</span>
   );
-};
+}
 
 export default Timer;

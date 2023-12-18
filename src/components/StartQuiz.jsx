@@ -1,5 +1,7 @@
 import {Box,Button,Typography,styled } from '@mui/material';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Timer from './Timer';
 
 const Container = styled(Box)`
   height: 100vh;
@@ -15,7 +17,7 @@ const StartBox = styled(Box)`
     flex-direction: column;
     justify-content: space-evenly;
     padding: 1rem 2rem;
-    align-items: felx-start;
+    align-items: flex-start;
     border-radius: 15px;
     border: 1px solid #F2F2F2;
     box-shadow: 25px 25px 15px 6px rgba(0,0,0,0.1);
@@ -28,8 +30,10 @@ const StyledButton = styled(Button)`
 
 const StartQuiz = () => {
     const navigate = useNavigate();
+    const [running, setRunning] = useState(false);
 
     const start = () => {
+        setRunning(true);
         navigate("/quiz");
         
     }
@@ -42,6 +46,7 @@ const StartQuiz = () => {
         <Typography>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</Typography>
         <StyledButton variant="contained" onClick={start}>Start Quiz</StyledButton>
        </StartBox>
+       {running && <Timer setRunning={setRunning}/>}
       
     </Container>
   )
